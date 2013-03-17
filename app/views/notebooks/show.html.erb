@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @notebook.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @notebook.description %>
+</p>
+	<table class="table">
+ 	<tr>
+ 		<th>Name</th>
+ 		<th> Description</th>
+ 		<th>Date Due</th>
+ 	</tr>
+ 	<% @notebook.tasks.each do |task| %>
+   	<tr>
+		<td><%= link_to task.name, edit_notebook_task_path(@notebook, task) %></td>
+	<td><%= task.description %></td>
+		<td><%= task.datedue %></td>
+	</tr>
+	<%end%>
+</table>
+
+<p>
+  <%= link_to 'New Task', new_notebook_task_path(@notebook) %>
+</p>
+
+
+<%= link_to 'Edit', edit_notebook_path(@notebook) %> |
+<%= link_to 'Back', notebooks_path %>

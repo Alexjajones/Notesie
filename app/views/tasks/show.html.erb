@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @task.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @task.description %>
+</p>
+
+<p>
+  <b>Datedue:</b>
+  <%= @task.datedue %>
+</p>
+
+
+<%= link_to 'Edit', edit_notebook_task_path(@notebook,@task) %> |
+<%= link_to 'Back', notebook_path(@notebook) %>
