@@ -37,10 +37,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Gemfile" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Gemfile">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="38" selection-start="547" selection-end="547" vertical-scroll-proportion="0.8612335">
+            <state line="23" column="80" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="show.html.erb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/notebooks/show.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="26" column="98" selection-start="494" selection-end="494" vertical-scroll-proportion="0.5074627">
               <folding />
             </state>
           </provider>
@@ -84,7 +93,6 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/app/views/tasks/_form.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/notebooks/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/tasks/show.html.erb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/tasks_controller.rb" />
@@ -98,6 +106,7 @@
         <option value="$PROJECT_DIR$/app/controllers/notebooks_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
+        <option value="$PROJECT_DIR$/app/views/notebooks/show.html.erb" />
       </list>
     </option>
   </component>
@@ -109,10 +118,10 @@
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1264" />
-    <option name="y" value="48" />
-    <option name="width" value="962" />
-    <option name="height" value="980" />
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -525,7 +534,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1264" y="48" width="962" height="980" extended-state="0" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -533,7 +542,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32977587" sideWeight="0.6002167" order="3" side_tool="false" content_ui="tabs" x="645" y="366" width="75" height="36" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.25506938" sideWeight="0.6002167" order="0" side_tool="false" content_ui="combo" x="-1679" y="32" width="392" height="1007" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.43329397" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="true" weight="0.39761648" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" x="-1285" y="672" width="1282" height="367" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" weight="0.32936078" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" x="-1266" y="338" width="1262" height="229" />
@@ -636,11 +645,6 @@
         <state line="8" column="53" selection-start="130" selection-end="130" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/notebooks/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="99" selection-start="452" selection-end="452" vertical-scroll-proportion="-15.038462" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/tasks_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="86" selection-start="676" selection-end="676" vertical-scroll-proportion="0.0" />
@@ -689,7 +693,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="38" selection-start="547" selection-end="547" vertical-scroll-proportion="0.8612335">
+        <state line="23" column="80" selection-start="547" selection-end="547" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/notebooks/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="98" selection-start="494" selection-end="494" vertical-scroll-proportion="0.5074627">
           <folding />
         </state>
       </provider>
