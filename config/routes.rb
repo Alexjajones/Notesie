@@ -1,7 +1,8 @@
 Notesie::Application.routes.draw do
   devise_for :users
-
   resources :tasks
+
+  resources :users
 
   resources :notebooks do
     resources :tasks
