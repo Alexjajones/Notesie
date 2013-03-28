@@ -36,27 +36,25 @@
   </head>
   <body>
 
-    <div class="navbar navbar-fixed-top">
+    <div class="navbar navbar-static-top">
       <div class="navbar-inner">
         <div class="container">
-          <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="#">Notesie</a>
-          <div class="container nav-collapse">
-            <ul class="nav">
+          <div class="container-fluid">
+
+            <a class="brand" href="#">N<i class="icon-th-list"></i>TESIE</a>
+
+            <ul class="nav pull-right">
               <% if user_signed_in?  %>
+                  <li class="active"> <%= link_to 'Notebooks', notebooks_path  %> </li>
                   <li><%= link_to current_user.email, edit_user_registration_path %></li>
                   <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
               <% else %>
                   <li><%=	 link_to 'Sign Up', new_user_registration_path %></li>
                   <li><%=	 link_to 'Log In', new_user_session_path %></li>
               <% end %>
-                  <li><%= link_to 'Notebooks', notebooks_path  %></li>
-             </ul>
-          </div><!--/.nav-collapse -->
+            </ul>
+
+          </div>
         </div>
       </div>
     </div>
