@@ -60,15 +60,17 @@
     </div>
 
     <div class="container">
-        <div class="row">
-          <div class="span9">
+      <div class="container-fluid">
+        <div class="row-fluid">
+          <div class="span8">
             <%= bootstrap_flash %>
             <%= yield %>
           </div>
-          <div class="span3">
+          <div class="span4">
 
           </div><!--/span-->
         </div><!--/row-->
+       </div>
 
       <footer>
         <p>&copy; Gacksie <%= Time.now.year %></p>
