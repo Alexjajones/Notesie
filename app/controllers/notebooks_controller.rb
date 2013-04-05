@@ -2,6 +2,7 @@ class NotebooksController < ApplicationController
 
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_filter :owns_notebook, only: [:edit, :update, :destroy]
+  before_filter :is_tutor, only: [:new]
   # GET /notebooks
   # GET /notebooks.json
   def index
@@ -89,10 +90,18 @@ class NotebooksController < ApplicationController
 
   def owns_notebook
 
-    #If the user is not signed in, or the current user does not own the trip, its going to redirect them to trips page
+    #If the user is not signed in, or the current user does not own the trip, redirect them to notebooks page with an error
       if !user_signed_in? || current_user != Notebook.find(params[:id]).user
         redirect_to notebook_path, error: 'You cannot do that'
       end
+  end
+
+  def is_tutor
+
+    #If the user is not signed in, or the current user is not a tutor, redirect them to notebooks page with an error
+    if !user_signed_in? || current_user.tutor != true
+      redirect_to notebook_path, error: 'You cannot do that'
+    end
   end
 
 end
