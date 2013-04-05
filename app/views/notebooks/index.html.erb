@@ -30,5 +30,6 @@
 </table>
 
 <br />
-
+ <% if user_signed_in? && current_user.tutor == true %>
 <%= link_to 'New Notebook', new_notebook_path %>
+ <% end %>
