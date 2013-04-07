@@ -17,7 +17,7 @@
  	</tr>
  	<% @notebook.tasks.each do |task| %>
    	<tr>
-		<td><%= task.name %></td>
+		<td><%= link_to task.name.titleize, edit_notebook_task_path(@notebook, task) %></td>
 	    <td><%= task.description %></td>
 		<td><%= task.datedue.strftime("%m/%d/%Y") %></td>
 	</tr>
@@ -32,5 +32,5 @@
 
 
 <%= link_to 'Edit', edit_notebook_path(@notebook) %> |
-  <%	 end %>
+<%	 end %>
 <%= link_to 'Back', notebooks_path %>

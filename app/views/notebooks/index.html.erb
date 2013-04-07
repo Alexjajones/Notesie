@@ -28,7 +28,7 @@
       <% if user_signed_in? && current_user.subject_id == notebook.subject_id %>
 
   <tr>
-    <td><%= notebook.name %></td>
+    <td><%= notebook.name.titleize %></td>
     <td><%= notebook.description %></td>
     <td><%= link_to 'Show', notebook %></td>
     <%	 if user_signed_in? && current_user == notebook.user %>
