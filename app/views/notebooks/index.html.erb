@@ -3,6 +3,9 @@
   <%= link_to new_notebook_path, :class => "btn btn-small" do %>
   <i class="icon-th-list"></i> Create New Notesie
   <% end %>
+      <%= link_to subjects_path, :class => "btn btn-small" do %>
+          <i class="icon-th-list"></i>  View Subjects
+      <% end %>
   <% end %>
 
 </div>
@@ -31,7 +34,7 @@
     <%	 if user_signed_in? && current_user == notebook.user %>
     <td><%= link_to 'Edit', edit_notebook_path(notebook) %></td>
     <td><%= link_to 'Destroy', notebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <%	 end %>
+    <%	 end %>
   </tr>
 <% end %>
   <% end %>

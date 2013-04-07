@@ -17,17 +17,20 @@
  	</tr>
  	<% @notebook.tasks.each do |task| %>
    	<tr>
-		<td><%= link_to task.name, edit_notebook_task_path(@notebook, task) %></td>
-	<td><%= task.description %></td>
+		<td><%= task.name %></td>
+	    <td><%= task.description %></td>
 		<td><%= task.datedue.strftime("%m/%d/%Y") %></td>
 	</tr>
 	<%end%>
 </table>
 
 <p>
+  <%	 if user_signed_in? && current_user == @notebook.user %>
   <%= link_to 'New Task', new_notebook_task_path(@notebook) %>
+
 </p>
 
 
 <%= link_to 'Edit', edit_notebook_path(@notebook) %> |
+  <%	 end %>
 <%= link_to 'Back', notebooks_path %>

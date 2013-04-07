@@ -1,6 +1,6 @@
 class NotebooksController < ApplicationController
 
-  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
   before_filter :owns_notebook, only: [:edit, :update, :destroy]
   before_filter :is_tutor, only: [:new]
   # GET /notebooks
