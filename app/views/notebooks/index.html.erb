@@ -22,6 +22,8 @@
   </thead>
 
 <% @notebooks.each do |notebook| %>
+      <% if user_signed_in? && current_user.subject_id == notebook.subject_id %>
+
   <tr>
     <td><%= notebook.name %></td>
     <td><%= notebook.description %></td>
@@ -32,6 +34,7 @@
         <%	 end %>
   </tr>
 <% end %>
+  <% end %>
 </table>
 
 <br />

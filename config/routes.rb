@@ -1,4 +1,6 @@
 Notesie::Application.routes.draw do
+  resources :subjects
+
   devise_for :users
   resources :tasks
 

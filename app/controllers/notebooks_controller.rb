@@ -90,7 +90,7 @@ class NotebooksController < ApplicationController
 
   def owns_notebook
 
-    #If the user is not signed in, or the current user does not own the trip, redirect them to notebooks page with an error
+    #If the user is not signed in, or the current user does not own the notebook, redirect them to notebooks page with an error
       if !user_signed_in? || current_user != Notebook.find(params[:id]).user
         redirect_to notebook_path, error: 'You cannot do that'
       end
