@@ -78,7 +78,11 @@
     
     <li><a href="#method-i-index">#index</a>
     
+    <li><a href="#method-i-is_tutor">#is_tutor</a>
+    
     <li><a href="#method-i-new">#new</a>
+    
+    <li><a href="#method-i-owns_bulletin">#owns_bulletin</a>
     
     <li><a href="#method-i-show">#show</a>
     
@@ -186,7 +190,7 @@
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bulletin</span>])
   <span class="ruby-ivar">@bulletin</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">current_user</span>
@@ -227,7 +231,7 @@
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 75</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 79</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@bulletin</span>.<span class="ruby-identifier">destroy</span>
@@ -263,7 +267,7 @@
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 40</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -293,7 +297,7 @@
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 8</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@bulletins</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">all</span>
 
@@ -312,6 +316,39 @@
       </div><!-- index-method -->
 
     
+      <div id="method-i-is_tutor" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">is_tutor</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If the user is not signed in, or the current user is not a tutor, redirect
+them to notebooks page with an error</p>
+          
+
+          
+          <div class="method-source-code" id="is_tutor-source">
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">is_tutor</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user_signed_in?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">tutor</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notebook_path</span>, <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">'You must be a tutor to do this'</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- is_tutor-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- is_tutor-method -->
+
+    
       <div id="method-i-new" class="method-detail ">
         
         <div class="method-heading">
@@ -328,7 +365,7 @@
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 30</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">new</span>
 
@@ -347,6 +384,39 @@
       </div><!-- new-method -->
 
     
+      <div id="method-i-owns_bulletin" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">owns_bulletin</span><span
+            class="method-args">()</span>
+          <span class="method-click-advice">click to toggle source</span>
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>If the user is not signed in, or the current user does not own the
+notebook, redirect them to notebooks page with an error</p>
+          
+
+          
+          <div class="method-source-code" id="owns_bulletin-source">
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">owns_bulletin</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user_signed_in?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">current_user</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]).<span class="ruby-identifier">user</span>
+    <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notebooks_path</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:notebook_id</span>]), <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">'You cannot do this as you do not own this bulletin'</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div><!-- owns_bulletin-source -->
+          
+        </div>
+
+        
+
+        
+      </div><!-- owns_bulletin-method -->
+
+    
       <div id="method-i-show" class="method-detail ">
         
         <div class="method-heading">
@@ -363,7 +433,7 @@
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -398,7 +468,7 @@
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 59</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 63</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 

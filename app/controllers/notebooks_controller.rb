@@ -1,8 +1,14 @@
 class NotebooksController < ApplicationController
+  #Makes authenticate_user! effect the whole application. This will force the user to sign up/log in before the application can be used
+  before_filter :authenticate_user!
 
-  before_filter :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+  #Makes owns_notebook only effect edit, update and destroy
   before_filter :owns_notebook, only: [:edit, :update, :destroy]
+
+  #Makes owns_notebook only effect new
   before_filter :is_tutor, only: [:new]
+
+  # Passes all of current notebooks within notebooks database to the global notebooks parameter
   # GET /notebooks
   # GET /notebooks.json
   def index
@@ -87,19 +93,15 @@ class NotebooksController < ApplicationController
     end
   end
 
-  private
-
+  #If the user is not signed in, or the current user does not own the notebook, redirect them to notebooks page with an error, ensuring complete ownership of notebooks
   def owns_notebook
-
-    #If the user is not signed in, or the current user does not own the notebook, redirect them to notebooks page with an error
       if !user_signed_in? || current_user != Notebook.find(params[:id]).user
         redirect_to notebook_path,  alert: 'You cannot do this as you do not own this notebook'
       end
   end
 
+  #If the user is not signed in, or the current user is not a tutor, redirect them to notebooks page with an error
   def is_tutor
-
-    #If the user is not signed in, or the current user is not a tutor, redirect them to notebooks page with an error
     if !user_signed_in? || current_user.tutor != true
       redirect_to notebook_path, lert: 'You must be a tutor to do this'
     end

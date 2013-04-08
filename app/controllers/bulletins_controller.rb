@@ -86,19 +86,16 @@ class BulletinsController < ApplicationController
     end
   end
 
-  private
 
+  #If the user is not signed in, or the current user does not own the notebook, redirect them to notebooks page with an error
   def owns_bulletin
-
-    #If the user is not signed in, or the current user does not own the notebook, redirect them to notebooks page with an error
     if !user_signed_in? || current_user != Bulletin.find(params[:id]).user
       redirect_to notebooks_path(params[:notebook_id]), alert: 'You cannot do this as you do not own this bulletin'
     end
   end
 
+  #If the user is not signed in, or the current user is not a tutor, redirect them to notebooks page with an error
   def is_tutor
-
-    #If the user is not signed in, or the current user is not a tutor, redirect them to notebooks page with an error
     if !user_signed_in? || current_user.tutor != true
       redirect_to notebook_path, alert: 'You must be a tutor to do this'
     end
