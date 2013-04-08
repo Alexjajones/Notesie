@@ -93,7 +93,7 @@ class NotebooksController < ApplicationController
 
     #If the user is not signed in, or the current user does not own the notebook, redirect them to notebooks page with an error
       if !user_signed_in? || current_user != Notebook.find(params[:id]).user
-        redirect_to notebook_path, error: 'You cannot do that'
+        redirect_to notebook_path,  alert: 'You cannot do this as you do not own this notebook'
       end
   end
 
@@ -101,7 +101,7 @@ class NotebooksController < ApplicationController
 
     #If the user is not signed in, or the current user is not a tutor, redirect them to notebooks page with an error
     if !user_signed_in? || current_user.tutor != true
-      redirect_to notebook_path, error: 'You cannot do that'
+      redirect_to notebook_path, lert: 'You must be a tutor to do this'
     end
   end
 

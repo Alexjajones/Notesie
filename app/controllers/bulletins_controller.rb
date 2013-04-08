@@ -1,4 +1,8 @@
 class BulletinsController < ApplicationController
+
+  before_filter :authenticate_user!, only: [:index, :new, :create, :edit, :update, :destroy]
+  before_filter :owns_bulletin, only: [:edit, :update, :destroy]
+  before_filter :is_tutor, only: [:new]
   # GET /bulletins
   # GET /bulletins.json
   def index
@@ -81,4 +85,23 @@ class BulletinsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+
+  def owns_bulletin
+
+    #If the user is not signed in, or the current user does not own the notebook, redirect them to notebooks page with an error
+    if !user_signed_in? || current_user != Bulletin.find(params[:id]).user
+      redirect_to notebooks_path(params[:notebook_id]), alert: 'You cannot do this as you do not own this bulletin'
+    end
+  end
+
+  def is_tutor
+
+    #If the user is not signed in, or the current user is not a tutor, redirect them to notebooks page with an error
+    if !user_signed_in? || current_user.tutor != true
+      redirect_to notebook_path, alert: 'You must be a tutor to do this'
+    end
+  end
+
 end
