@@ -4,6 +4,9 @@
   <%= link_to new_notebook_path, :class => "btn btn-small" do %>
   <i class="icon-th-list"></i> Create New Notesie
   <% end %>
+      <%= link_to new_bulletin_path, :class => "btn btn-small" do %>
+          <i class="icon-th-list"></i> Add Bulletin Post
+      <% end %>
   <% end %>
 </div>
 <h5>My Notesie's</h5>
@@ -29,7 +32,9 @@
     <td><%= link_to 'Show', notebook %></td>
     <%	 if user_signed_in? && current_user == notebook.user %>
     <td><%= link_to 'Edit', edit_notebook_path(notebook) %></td>
-    <td><%= link_to 'Destroy', notebook, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td> <%= link_to notebook, method: :delete, data: {confirm: 'Are you sure?'} do %>
+              <i class="icon-remove"></i>
+          <% end %> </td>
     <%	 end %>
   </tr>
 <% end %>
@@ -38,4 +43,26 @@
 
 <br />
     </div>
-<div class="span4"></div>
+<div class="span4">
+ <h5>News Bulletin</h5>
+  <table class="table">
+    <tr>
+      <th>Name</th>
+      <th> Description</th>
+    </tr>
+    <% @bulletins.each do |bulletin| %>
+        <% if user_signed_in? && current_user.subject_id == bulletin.subject_id %>
+        <tr>
+          <td><%= link_to bulletin.title.titleize, edit_bulletin_path(bulletin) %></td>
+          <td><%= bulletin.description %></td>
+
+          <%	 if user_signed_in? && current_user == bulletin.user %>
+          <td> <%= link_to bulletin, method: :delete, data: {confirm: 'Are you sure?'} do %> <i class="icon-remove"></i>  <% end %> </td>
+          <% end %>
+
+        </tr>
+            <% end %>
+    <%end%>
+  </table>
+
+</div>

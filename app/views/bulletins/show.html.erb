@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @bulletin.title %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @bulletin.description %>
+</p>
+
+
+<%= link_to 'Edit', edit_bulletin_path(@bulletin) %> |
+<%= link_to 'Back', bulletins_path %>

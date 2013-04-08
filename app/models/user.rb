@@ -10,5 +10,6 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   attr_accessible :tutor, :subject_id
   has_many :notebooks
+  has_many :bulletins
   has_many :tasks, through: :notebooks
 end

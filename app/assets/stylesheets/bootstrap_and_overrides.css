@@ -11,7 +11,7 @@
     display: block;
     padding: 10px 20px 10px;
     margin-left: -20px;
-    font-size: 20px;
+    font-size: 25px;
     font-weight: 200;
     color: #000;
     text-shadow: 0 1px 0 #2e90d0;
@@ -27,4 +27,15 @@
 }
 .navbar-link {
     color: #777777;
+}
+
+.navbar .nav > li > a {
+    color: black;
+    text-shadow: none;
+    padding: 13px 15px 10px;
+}
+
+.brand .icon-th-list{
+    font-size: 24px;
+    padding: 1px;
 }

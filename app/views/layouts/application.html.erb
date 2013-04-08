@@ -41,13 +41,19 @@
         <div class="container">
           <div class="container-fluid">
 
-            <div class="brand">N<i class="icon-th-list"></i>TESIE</div>
+            <a href="/"><div class="brand">N<i class="icon-th-list"></i>TESIE</div></a>
 
             <ul class="nav pull-right">
               <% if user_signed_in?  %>
-                  <li class="active"> <%= link_to 'Notebooks', notebooks_path  %> </li>
-                  <li><%= link_to current_user.email, edit_user_registration_path %></li>
-                  <li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>
+
+
+
+                  <li> <%= link_to notebooks_path do %> <i class="icon-briefcase"></i> Notesies <% end %> </li>
+                  <li> <%= link_to edit_user_registration_path do %> <i class="icon-user"></i>Profile <% end %> </li>
+                  <li> <%= link_to destroy_user_session_path, method: :delete do %> <i class="icon-lock"></i>Log Off <% end %> </li>
+                  <!--Old nav-->
+                  <!--<li><%= link_to current_user.email, edit_user_registration_path %></li>-->
+                  <!--<li><%= link_to 'Logout', destroy_user_session_path, method: :delete %></li>-->
               <% else %>
                   <li><%=	 link_to 'Sign Up', new_user_registration_path %></li>
                   <li><%=	 link_to 'Log In', new_user_session_path %></li>

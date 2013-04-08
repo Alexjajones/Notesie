@@ -7,7 +7,7 @@ class NotebooksController < ApplicationController
   # GET /notebooks.json
   def index
     @notebooks = Notebook.all
-
+    @bulletins = Bulletin.all
 
     respond_to do |format|
       format.html
