@@ -9,7 +9,6 @@ class NotebooksController < ApplicationController
     @notebooks = Notebook.all
 
     respond_to do |format|
-      format.html # index.html.erb
       format.json { render json: @notebooks }
     end
   end

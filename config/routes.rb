@@ -10,7 +10,7 @@ Notesie::Application.routes.draw do
     resources :tasks
   end
 
-  root to: 'notebooks#index'
+  root to: 'home#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -59,7 +59,7 @@ Notesie::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
+  # just remember to delete home/index.html.erb.
   # root :to => 'welcome#index'
 
   # See how all your routes lay out with "rake routes"

@@ -1,12 +1,11 @@
+<div class="span8">
 <div class="pull-right">
   <% if user_signed_in? && current_user.tutor == true %>
   <%= link_to new_notebook_path, :class => "btn btn-small" do %>
   <i class="icon-th-list"></i> Create New Notesie
   <% end %>
   <% end %>
-
 </div>
-
 <h5>My Notesie's</h5>
 <hr>
 
@@ -38,3 +37,5 @@
 </table>
 
 <br />
+    </div>
+<div class="span4"></div>
