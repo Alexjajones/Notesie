@@ -8,7 +8,9 @@ class NotebooksController < ApplicationController
   def index
     @notebooks = Notebook.all
 
+
     respond_to do |format|
+      format.html
       format.json { render json: @notebooks }
     end
   end
