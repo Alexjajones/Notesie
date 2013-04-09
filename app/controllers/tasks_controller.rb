@@ -4,6 +4,9 @@ class TasksController < ApplicationController
   #Before filter means it is applied to the application before it loads.
   before_filter :authenticate_user!
 
+  #Makes owns_task only effect edit, update and destroy
+  before_filter :owns_task, only: [:edit, :update, :destroy]
+
   # Passes all of current tasks via the Tasks model into the @tasks hash/array and displays the index view.
   # GET /tasks
   # GET /tasks.json
@@ -58,6 +61,7 @@ class TasksController < ApplicationController
   def create
     @notebook = Notebook.find(params[:notebook_id])
     @task = @notebook.tasks.new(params[:task])
+    @task.user = current_user
 
     respond_to do |format|
       if @task.save
@@ -96,8 +100,16 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to tasks_url }
+      format.html { redirect_to notebook_path(params[:notebook_id]) }
       format.json { head :no_content }
     end
   end
+
+  #If the user is not signed in, or the current user does not own the bulletin, redirect them to notebooks page with an error,ensuring complete ownership of bulletins.
+  def owns_task
+    if !user_signed_in? || current_user != Notebook.find(params[:notebook_id]).user
+      redirect_to notebook_path(params[:notebook_id]), alert: 'You cannot do this as you do not own this task'
+    end
+  end
+
 end

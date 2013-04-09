@@ -17,4 +17,5 @@ class Task < ActiveRecord::Base
 
 
   belongs_to :notebook
+  has_one :user
 end

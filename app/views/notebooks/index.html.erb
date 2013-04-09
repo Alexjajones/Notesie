@@ -4,9 +4,6 @@
   <%= link_to new_notebook_path, :class => "btn btn-small" do %>
   <i class="icon-th-list"></i> Create New Notesie
   <% end %>
-      <%= link_to new_bulletin_path, :class => "btn btn-small" do %>
-          <i class="icon-th-list"></i> Add Bulletin Post
-      <% end %>
   <% end %>
 </div>
 <h5>My Notesie's</h5>
@@ -44,7 +41,16 @@
 <br />
     </div>
 <div class="span4">
+  <div class="pull-right">
+    <% if user_signed_in? && current_user.tutor == true %>
+  <%= link_to new_bulletin_path, :class => "btn btn-small" do %>
+      <i class="icon-th-list"></i> Add Bulletin Post
+  <% end %>
+  <% end %>
+    </div>
  <h5>News Bulletin</h5>
+
+
   <table class="table">
     <tr>
       <th>Name</th>
