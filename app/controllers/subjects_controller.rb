@@ -1,4 +1,6 @@
 class SubjectsController < ApplicationController
+
+  # Passes all of current subjects via the Subject model into the @subjects hash/array and displays the index view.
   # GET /subjects
   # GET /subjects.json
   def index
@@ -10,6 +12,8 @@ class SubjectsController < ApplicationController
     end
   end
 
+
+  #Finds the current subject id within the current parameter, passes it into @subject hash/array and displays that single subject via the show view.
   # GET /subjects/1
   # GET /subjects/1.json
   def show
@@ -21,6 +25,7 @@ class SubjectsController < ApplicationController
     end
   end
 
+  #Calls .new to create a new subject via the Subject model and displays that single subject via the new.html.erb view.
   # GET /subjects/new
   # GET /subjects/new.json
   def new
@@ -32,11 +37,13 @@ class SubjectsController < ApplicationController
     end
   end
 
+  #Finds the current subject id within the current parameter and displays that single subject with editing options via the edit.html.erb view, which renders the _form.html.erb as the form.
   # GET /subjects/1/edit
   def edit
     @subject = Subject.find(params[:id])
   end
 
+  #Calls .new to create a new subject via the Subject model with a new id.
   # POST /subjects
   # POST /subjects.json
   def create
@@ -53,6 +60,7 @@ class SubjectsController < ApplicationController
     end
   end
 
+  #Update finds the current subject id within the current parameter committing any updates on the subject on request showing a message on completion.
   # PUT /subjects/1
   # PUT /subjects/1.json
   def update
@@ -69,6 +77,7 @@ class SubjectsController < ApplicationController
     end
   end
 
+  #Finds the current subject id within the current parameter and assigns it to @subject, then calls destroy on that subject.
   # DELETE /subjects/1
   # DELETE /subjects/1.json
   def destroy
