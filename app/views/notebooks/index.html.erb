@@ -28,7 +28,7 @@
     <td><%= notebook.description %></td>
 
     <td><div class="btn-group">
-       <%= link_to notebook, :class => "btn btn-small" do %>  <i class="icon-user icon-white"></i> View<% end %>
+       <%= link_to notebook, :class => "btn btn-small" do %>  <i class="icon-chevron-right"></i> View<% end %>
       <%	 if user_signed_in? && current_user == notebook.user %>
       <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
       <ul class="dropdown-menu">
