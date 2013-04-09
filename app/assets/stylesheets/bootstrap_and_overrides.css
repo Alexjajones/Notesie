@@ -44,3 +44,11 @@
 li {
     color: black !important;
 }
+
+.pull-right{
+    margin: 7px;
+}
+
+/*.btn-group > .btn:first-child{*/
+    /*color: #ffffff !important;*/
+/*}*/
