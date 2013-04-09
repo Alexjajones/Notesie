@@ -1,4 +1,10 @@
 class TasksController < ApplicationController
+
+  #Makes authenticate_user! effect the whole application. This will force the user to sign up/log in before the application can be used.
+  #Before filter means it is applied to the application before it loads.
+  before_filter :authenticate_user!
+
+  # Passes all of current tasks via the Tasks model into the @tasks hash/array and displays the index view.
   # GET /tasks
   # GET /tasks.json
   def index
@@ -10,6 +16,8 @@ class TasksController < ApplicationController
     end
   end
 
+  #Finds the current task id within the current parameter, passes it into @task hash/array and displays that single task via the show view.
+  #Also passes current notebook from the Notebooks model into @notebook hash/array
   # GET /tasks/1
   # GET /tasks/1.json
   def show
@@ -22,6 +30,8 @@ class TasksController < ApplicationController
     end
   end
 
+  #Calls .new to create a new task via the Task model and displays that single task via the new.html.erb view.
+  #Also passes current notebook from the Notebooks model into @notebook hash/array
   # GET /tasks/new
   # GET /tasks/new.json
   def new
@@ -34,12 +44,15 @@ class TasksController < ApplicationController
     end
   end
 
+  #Finds the current task id within the current parameter and displays that single task with editing options via the edit.html.erb view, which renders the _form.html.erb as the form.
   # GET /tasks/1/edit
   def edit
     @notebook = Notebook.find(params[:notebook_id])
     @task = Task.find(params[:id])
   end
 
+  #Calls .new to create a new task nested under notebooks, passing the task via the parameter.
+  #Also passes current notebook from the Notebooks model into @notebook hash/array
   # POST /tasks
   # POST /tasks.json
   def create
@@ -57,6 +70,8 @@ class TasksController < ApplicationController
     end
   end
 
+  #Update finds the current task id within the current parameter committing any updates on the task on request showing a message on completion.
+  #Redirects user to the tasks root /notebooks/1/tasks/1
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update
@@ -73,6 +88,7 @@ class TasksController < ApplicationController
     end
   end
 
+  #Finds the current task id within the current parameter and assigns it to @task, then calls destroy on that task.
   # DELETE /tasks/1
   # DELETE /tasks/1.json
   def destroy

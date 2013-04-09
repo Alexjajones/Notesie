@@ -29,7 +29,7 @@
     color: #777777;
 }
 
-<<<<<<< HEAD
+
 .navbar .nav > li > a {
     color: black;
     text-shadow: none;
@@ -39,8 +39,8 @@
 .brand .icon-th-list{
     font-size: 24px;
     padding: 1px;
-=======
+}
+
 li {
     color: black !important;
->>>>>>> Icons and css override
 }

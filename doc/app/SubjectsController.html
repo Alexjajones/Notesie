@@ -104,40 +104,26 @@
   <h3 class="section-header">Class and Module Index</h3>
 
   <ul class="link-list">
-  
-    <li><a href="./ApplicationController.html">ApplicationController</a>
-  
-    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
-  
-    <li><a href="./Bulletin.html">Bulletin</a>
-  
-    <li><a href="./BulletinsController.html">BulletinsController</a>
-  
-    <li><a href="./BulletinsHelper.html">BulletinsHelper</a>
-  
-    <li><a href="./HomeController.html">HomeController</a>
-  
-    <li><a href="./HomeHelper.html">HomeHelper</a>
-  
-    <li><a href="./Notebook.html">Notebook</a>
-  
-    <li><a href="./NotebooksController.html">NotebooksController</a>
-  
-    <li><a href="./NotebooksHelper.html">NotebooksHelper</a>
-  
-    <li><a href="./Subject.html">Subject</a>
-  
-    <li><a href="./SubjectsController.html">SubjectsController</a>
-  
-    <li><a href="./SubjectsHelper.html">SubjectsHelper</a>
-  
-    <li><a href="./Task.html">Task</a>
-  
-    <li><a href="./TasksController.html">TasksController</a>
-  
-    <li><a href="./TasksHelper.html">TasksHelper</a>
-  
-    <li><a href="./User.html">User</a>
+
+      <li><a href="./Bulletin.html">Bulletin</a>
+
+      <li><a href="./BulletinsController.html">BulletinsController</a>
+
+      <li><a href="./HomeController.html">HomeController</a>
+
+      <li><a href="./Notebook.html">Notebook</a>
+
+      <li><a href="./NotebooksController.html">NotebooksController</a>
+
+      <li><a href="./Subject.html">Subject</a>
+
+      <li><a href="./SubjectsController.html">SubjectsController</a>
+
+      <li><a href="./Task.html">Task</a>
+
+      <li><a href="./TasksController.html">TasksController</a>
+
+      <li><a href="./User.html">User</a
   
   </ul>
 </nav>
@@ -181,12 +167,16 @@
 
         <div class="method-description">
           
-          <p>POST /subjects POST /subjects.json</p>
+          <p>Calls .new to create a new subject via the <a
+href="Subject.html">Subject</a> model with a new id.</p>
+
+<pre>POST /subjects
+POST /subjects.json</pre>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 42</span>
+            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@subject</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:subject</span>])
 
@@ -221,12 +211,16 @@
 
         <div class="method-description">
           
-          <p>DELETE /subjects/1 DELETE /subjects/1.json</p>
+          <p>Finds the current subject id within the current parameter and assigns it to
+@subject, then calls destroy on that subject.</p>
+
+<pre>DELETE /subjects/1
+DELETE /subjects/1.json</pre>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 74</span>
+            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 83</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@subject</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@subject</span>.<span class="ruby-identifier">destroy</span>
@@ -257,12 +251,16 @@
 
         <div class="method-description">
           
-          <p>GET /subjects/1/edit</p>
+          <p>Finds the current subject id within the current parameter and displays that
+single subject with editing options via the edit.html.erb view, which
+renders the _form.html.erb as the form.</p>
+
+<pre>GET /subjects/1/edit</pre>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 36</span>
+            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 42</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@subject</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -287,12 +285,14 @@
 
         <div class="method-description">
           
-          <p>GET /subjects GET /subjects.json</p>
+          <p>Passes all of current subjects via the <a href="Subject.html">Subject</a>
+model into the @subjects hash/array and displays the index view. GET
+/subjects GET /subjects.json</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 6</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@subjects</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">all</span>
 
@@ -322,12 +322,17 @@
 
         <div class="method-description">
           
-          <p>GET /subjects/new GET /subjects/new.json</p>
+          <p>Calls .new to create a new subject via the <a
+href="Subject.html">Subject</a> model and displays that single subject via
+the new.html.erb view.</p>
+
+<pre>GET /subjects/new
+GET /subjects/new.json</pre>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 26</span>
+            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 31</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@subject</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">new</span>
 
@@ -357,12 +362,16 @@
 
         <div class="method-description">
           
-          <p>GET /subjects/1 GET /subjects/1.json</p>
+          <p>Finds the current subject id within the current parameter, passes it into
+@subject hash/array and displays that single subject via the show view.</p>
+
+<pre>GET /subjects/1
+GET /subjects/1.json</pre>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 19</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@subject</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -392,12 +401,16 @@
 
         <div class="method-description">
           
-          <p>PUT /subjects/1 PUT /subjects/1.json</p>
+          <p>Update finds the current subject id within the current parameter committing
+any updates on the subject on request showing a message on completion.</p>
+
+<pre>PUT /subjects/1
+PUT /subjects/1.json</pre>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 58</span>
+            <pre><span class="ruby-comment"># File app/controllers/subjects_controller.rb, line 66</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@subject</span> = <span class="ruby-constant">Subject</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 

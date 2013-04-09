@@ -1,5 +1,6 @@
 class NotebooksController < ApplicationController
-  #Makes authenticate_user! effect the whole application. This will force the user to sign up/log in before the application can be used
+  #Makes authenticate_user! effect the whole application. This will force the user to sign up/log in before the application can be used.
+  #Before filter means it is appplied to the application before it loads.
   before_filter :authenticate_user!
 
   #Makes owns_notebook only effect edit, update and destroy
@@ -8,7 +9,8 @@ class NotebooksController < ApplicationController
   #Makes owns_notebook only effect new
   before_filter :is_tutor, only: [:new]
 
-  # Passes all of current notebooks within notebooks database to the global notebooks parameter
+  # Passes all of current notebooks via the Notebooks model into the @notebooks hash/array and displays the index view.
+  # Also passes everything from the Bulletins model into @bulletins hash/array
   # GET /notebooks
   # GET /notebooks.json
   def index
@@ -21,6 +23,7 @@ class NotebooksController < ApplicationController
     end
   end
 
+  #Finds the current notebook id within the current parameter, passes it into @notebook hash/array and displays that single notebook via the show view.
   # GET /notebooks/1
   # GET /notebooks/1.json
   def show
@@ -32,6 +35,7 @@ class NotebooksController < ApplicationController
     end
   end
 
+  #Calls .new to create a new notebook via the Notebook model and displays that single notebook via the new.html.erb view.
   # GET /notebooks/new
   # GET /notebooks/new.json
   def new
@@ -43,11 +47,15 @@ class NotebooksController < ApplicationController
     end
   end
 
+  #Finds the current notebook id within the current parameter and displays that single notebook with editing options via the edit.html.erb view, which renders the _form.html.erb as the form.
   # GET /notebooks/1/edit
   def edit
     @notebook = Notebook.find(params[:id])
   end
 
+  #Calls .new to create a new notebook via the Notebook model, also assigning the current users ID to the user ID field within notebooks.
+  #This is used to ensure users only see what's meant for them.
+  #Also renders out a pages that tells users that creation was complete
   # POST /notebooks
   # POST /notebooks.json
   def create
@@ -65,6 +73,7 @@ class NotebooksController < ApplicationController
     end
   end
 
+  #Update finds the current notebook id within the current parameter committing any updates on the notebook on request showing a message on completion.
   # PUT /notebooks/1
   # PUT /notebooks/1.json
   def update
@@ -81,6 +90,7 @@ class NotebooksController < ApplicationController
     end
   end
 
+  #Finds the current notebook id within the current parameter and assigns it to @notebook, then calls destroy on that notebook.
   # DELETE /notebooks/1
   # DELETE /notebooks/1.json
   def destroy

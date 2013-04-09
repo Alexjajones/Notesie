@@ -1,19 +1,19 @@
-Mon, 08 Apr 2013 23:54:28 +0100
+Tue, 09 Apr 2013 13:00:09 +0100
 doc/README_FOR_APP	Sat, 16 Mar 2013 19:47:06 +0000
 app/controllers/application_controller.rb	Sat, 16 Mar 2013 19:47:05 +0000
-app/controllers/bulletins_controller.rb	Mon, 08 Apr 2013 23:54:13 +0100
-app/controllers/home_controller.rb	Mon, 08 Apr 2013 23:54:13 +0100
-app/controllers/notebooks_controller.rb	Mon, 08 Apr 2013 23:54:13 +0100
-app/controllers/subjects_controller.rb	Mon, 08 Apr 2013 18:07:52 +0100
-app/controllers/tasks_controller.rb	Mon, 08 Apr 2013 21:22:28 +0100
+app/controllers/bulletins_controller.rb	Tue, 09 Apr 2013 11:19:09 +0100
+app/controllers/home_controller.rb	Tue, 09 Apr 2013 00:08:10 +0100
+app/controllers/notebooks_controller.rb	Tue, 09 Apr 2013 12:51:19 +0100
+app/controllers/subjects_controller.rb	Tue, 09 Apr 2013 12:51:19 +0100
+app/controllers/tasks_controller.rb	Tue, 09 Apr 2013 12:56:57 +0100
 app/helpers/application_helper.rb	Sat, 16 Mar 2013 19:47:05 +0000
 app/helpers/bulletins_helper.rb	Mon, 08 Apr 2013 19:50:39 +0100
 app/helpers/home_helper.rb	Mon, 08 Apr 2013 18:07:52 +0100
 app/helpers/notebooks_helper.rb	Sat, 16 Mar 2013 19:49:20 +0000
 app/helpers/subjects_helper.rb	Sun, 07 Apr 2013 16:49:56 +0100
 app/helpers/tasks_helper.rb	Sat, 16 Mar 2013 19:54:24 +0000
-app/models/bulletin.rb	Mon, 08 Apr 2013 23:28:33 +0100
-app/models/notebook.rb	Mon, 08 Apr 2013 22:52:26 +0100
-app/models/subject.rb	Mon, 08 Apr 2013 22:52:26 +0100
-app/models/task.rb	Mon, 08 Apr 2013 23:42:05 +0100
-app/models/user.rb	Mon, 08 Apr 2013 22:52:26 +0100
+app/models/bulletin.rb	Tue, 09 Apr 2013 00:08:10 +0100
+app/models/notebook.rb	Tue, 09 Apr 2013 00:08:10 +0100
+app/models/subject.rb	Tue, 09 Apr 2013 00:08:10 +0100
+app/models/task.rb	Tue, 09 Apr 2013 00:08:10 +0100
+app/models/user.rb	Tue, 09 Apr 2013 00:08:10 +0100

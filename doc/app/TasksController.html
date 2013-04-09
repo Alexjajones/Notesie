@@ -104,40 +104,26 @@
   <h3 class="section-header">Class and Module Index</h3>
 
   <ul class="link-list">
-  
-    <li><a href="./ApplicationController.html">ApplicationController</a>
-  
-    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
-  
-    <li><a href="./Bulletin.html">Bulletin</a>
-  
-    <li><a href="./BulletinsController.html">BulletinsController</a>
-  
-    <li><a href="./BulletinsHelper.html">BulletinsHelper</a>
-  
-    <li><a href="./HomeController.html">HomeController</a>
-  
-    <li><a href="./HomeHelper.html">HomeHelper</a>
-  
-    <li><a href="./Notebook.html">Notebook</a>
-  
-    <li><a href="./NotebooksController.html">NotebooksController</a>
-  
-    <li><a href="./NotebooksHelper.html">NotebooksHelper</a>
-  
-    <li><a href="./Subject.html">Subject</a>
-  
-    <li><a href="./SubjectsController.html">SubjectsController</a>
-  
-    <li><a href="./SubjectsHelper.html">SubjectsHelper</a>
-  
-    <li><a href="./Task.html">Task</a>
-  
-    <li><a href="./TasksController.html">TasksController</a>
-  
-    <li><a href="./TasksHelper.html">TasksHelper</a>
-  
-    <li><a href="./User.html">User</a>
+
+      <li><a href="./Bulletin.html">Bulletin</a>
+
+      <li><a href="./BulletinsController.html">BulletinsController</a>
+
+      <li><a href="./HomeController.html">HomeController</a>
+
+      <li><a href="./Notebook.html">Notebook</a>
+
+      <li><a href="./NotebooksController.html">NotebooksController</a>
+
+      <li><a href="./Subject.html">Subject</a>
+
+      <li><a href="./SubjectsController.html">SubjectsController</a>
+
+      <li><a href="./Task.html">Task</a>
+
+      <li><a href="./TasksController.html">TasksController</a>
+
+      <li><a href="./User.html">User</a
   
   </ul>
 </nav>
@@ -181,12 +167,17 @@
 
         <div class="method-description">
           
-          <p>POST /tasks POST /tasks.json</p>
+          <p>Calls .new to create a new task nested under notebooks, passing the task
+via the parameter. Also passes current notebook from the Notebooks model
+into @notebook hash/array</p>
+
+<pre>POST /tasks
+POST /tasks.json</pre>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 45</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 58</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@notebook</span> = <span class="ruby-constant">Notebook</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:notebook_id</span>])
   <span class="ruby-ivar">@task</span> = <span class="ruby-ivar">@notebook</span>.<span class="ruby-identifier">tasks</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:task</span>])
@@ -222,12 +213,16 @@
 
         <div class="method-description">
           
-          <p>DELETE /tasks/1 DELETE /tasks/1.json</p>
+          <p>Finds the current task id within the current parameter and assigns it to
+@task, then calls destroy on that task.</p>
+
+<pre>DELETE /tasks/1
+DELETE /tasks/1.json</pre>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 78</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 94</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@task</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@task</span>.<span class="ruby-identifier">destroy</span>
@@ -258,12 +253,16 @@
 
         <div class="method-description">
           
-          <p>GET /tasks/1/edit</p>
+          <p>Finds the current task id within the current parameter and displays that
+single task with editing options via the edit.html.erb view, which renders
+the _form.html.erb as the form.</p>
+
+<pre>GET /tasks/1/edit</pre>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 38</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 49</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@notebook</span> = <span class="ruby-constant">Notebook</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:notebook_id</span>])
   <span class="ruby-ivar">@task</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
@@ -289,12 +288,13 @@
 
         <div class="method-description">
           
-          <p>GET /tasks GET /tasks.json</p>
+          <p>Passes all of current tasks via the Tasks model into the @tasks hash/array
+and displays the index view. GET /tasks GET /tasks.json</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 4</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@tasks</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">all</span>
 
@@ -324,12 +324,17 @@
 
         <div class="method-description">
           
-          <p>GET /tasks/new GET /tasks/new.json</p>
+          <p>Calls .new to create a new task via the <a href="Task.html">Task</a> model
+and displays that single task via the new.html.erb view. Also passes
+current notebook from the Notebooks model into @notebook hash/array</p>
+
+<pre>GET /tasks/new
+GET /tasks/new.json</pre>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 27</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 37</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@notebook</span> = <span class="ruby-constant">Notebook</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:notebook_id</span>])
   <span class="ruby-ivar">@task</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">new</span>
@@ -360,12 +365,17 @@
 
         <div class="method-description">
           
-          <p>GET /tasks/1 GET /tasks/1.json</p>
+          <p>Finds the current task id within the current parameter, passes it into
+@task hash/array and displays that single task via the show view. Also
+passes current notebook from the Notebooks model into @notebook hash/array</p>
+
+<pre>GET /tasks/1
+GET /tasks/1.json</pre>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 15</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 23</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@notebook</span> = <span class="ruby-constant">Notebook</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:notebook_id</span>])
   <span class="ruby-ivar">@task</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
@@ -396,12 +406,17 @@
 
         <div class="method-description">
           
-          <p>PUT /tasks/1 PUT /tasks/1.json</p>
+          <p>Update finds the current task id within the current parameter committing
+any updates on the task on request showing a message on completion.
+Redirects user to the tasks root /notebooks/1/tasks/1</p>
+
+<pre>PUT /tasks/1
+PUT /tasks/1.json</pre>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 62</span>
+            <pre><span class="ruby-comment"># File app/controllers/tasks_controller.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@task</span> = <span class="ruby-constant">Task</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 

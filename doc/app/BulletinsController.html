@@ -108,40 +108,26 @@
   <h3 class="section-header">Class and Module Index</h3>
 
   <ul class="link-list">
-  
-    <li><a href="./ApplicationController.html">ApplicationController</a>
-  
-    <li><a href="./ApplicationHelper.html">ApplicationHelper</a>
-  
-    <li><a href="./Bulletin.html">Bulletin</a>
-  
-    <li><a href="./BulletinsController.html">BulletinsController</a>
-  
-    <li><a href="./BulletinsHelper.html">BulletinsHelper</a>
-  
-    <li><a href="./HomeController.html">HomeController</a>
-  
-    <li><a href="./HomeHelper.html">HomeHelper</a>
-  
-    <li><a href="./Notebook.html">Notebook</a>
-  
-    <li><a href="./NotebooksController.html">NotebooksController</a>
-  
-    <li><a href="./NotebooksHelper.html">NotebooksHelper</a>
-  
-    <li><a href="./Subject.html">Subject</a>
-  
-    <li><a href="./SubjectsController.html">SubjectsController</a>
-  
-    <li><a href="./SubjectsHelper.html">SubjectsHelper</a>
-  
-    <li><a href="./Task.html">Task</a>
-  
-    <li><a href="./TasksController.html">TasksController</a>
-  
-    <li><a href="./TasksHelper.html">TasksHelper</a>
-  
-    <li><a href="./User.html">User</a>
+
+      <li><a href="./Bulletin.html">Bulletin</a>
+
+      <li><a href="./BulletinsController.html">BulletinsController</a>
+
+      <li><a href="./HomeController.html">HomeController</a>
+
+      <li><a href="./Notebook.html">Notebook</a>
+
+      <li><a href="./NotebooksController.html">NotebooksController</a>
+
+      <li><a href="./Subject.html">Subject</a>
+
+      <li><a href="./SubjectsController.html">SubjectsController</a>
+
+      <li><a href="./Task.html">Task</a>
+
+      <li><a href="./TasksController.html">TasksController</a>
+
+      <li><a href="./User.html">User</a
   
   </ul>
 </nav>
@@ -185,12 +171,19 @@
 
         <div class="method-description">
           
-          <p>POST /bulletins POST /bulletins.json</p>
+          <p>Calls .new to create a new bulletin via the <a
+href="Bulletin.html">Bulletin</a> model, also assigning the current users
+ID to the user ID field within bulletins. This is used to ensure users only
+see what’s meant for them. Also renders out a pages that tells users that
+creation was complete.</p>
+
+<pre>POST /bulletins
+POST /bulletins.json</pre>
           
 
           
           <div class="method-source-code" id="create-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 46</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 59</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">create</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:bulletin</span>])
   <span class="ruby-ivar">@bulletin</span>.<span class="ruby-identifier">user</span> = <span class="ruby-identifier">current_user</span>
@@ -226,12 +219,16 @@
 
         <div class="method-description">
           
-          <p>DELETE /bulletins/1 DELETE /bulletins/1.json</p>
+          <p>Finds the current bulletin id within the current parameter and assigns it
+to @bulletin, then calls destroy on that bulletin.</p>
+
+<pre>DELETE /bulletins/1
+DELETE /bulletins/1.json</pre>
           
 
           
           <div class="method-source-code" id="destroy-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 79</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 94</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">destroy</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
   <span class="ruby-ivar">@bulletin</span>.<span class="ruby-identifier">destroy</span>
@@ -262,12 +259,16 @@
 
         <div class="method-description">
           
-          <p>GET /bulletins/1/edit</p>
+          <p>Finds the current bulletin id within the current parameter and displays
+that single bulletin with editing options via the edit.html.erb view, which
+renders the _form.html.erb as the form.</p>
+
+<pre>GET /bulletins/1/edit</pre>
           
 
           
           <div class="method-source-code" id="edit-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 40</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">edit</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 <span class="ruby-keyword">end</span></pre>
@@ -292,12 +293,14 @@
 
         <div class="method-description">
           
-          <p>GET /bulletins GET /bulletins.json</p>
+          <p>Passes all of current bulletins via the <a
+href="Bulletin.html">Bulletin</a> model into the @bulletins hash/array and
+displays the index view. GET /bulletins GET /bulletins.json</p>
           
 
           
           <div class="method-source-code" id="index-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 8</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 15</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">index</span>
   <span class="ruby-ivar">@bulletins</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">all</span>
 
@@ -328,12 +331,12 @@
         <div class="method-description">
           
           <p>If the user is not signed in, or the current user is not a tutor, redirect
-them to notebooks page with an error</p>
+them to notebooks page with an error.</p>
           
 
           
           <div class="method-source-code" id="is_tutor-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 98</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 113</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">is_tutor</span>
   <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user_signed_in?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">current_user</span>.<span class="ruby-identifier">tutor</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">true</span>
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notebook_path</span>, <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">'You must be a tutor to do this'</span>
@@ -360,12 +363,17 @@ them to notebooks page with an error</p>
 
         <div class="method-description">
           
-          <p>GET /bulletins/new GET /bulletins/new.json</p>
+          <p>Calls .new to create a new bulletin via the <a
+href="Bulletin.html">Bulletin</a> model and displays that single bulletin
+via the new.html.erb view.</p>
+
+<pre>GET /bulletins/new
+GET /bulletins/new.json</pre>
           
 
           
           <div class="method-source-code" id="new-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 30</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">new</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">new</span>
 
@@ -396,12 +404,13 @@ them to notebooks page with an error</p>
         <div class="method-description">
           
           <p>If the user is not signed in, or the current user does not own the
-notebook, redirect them to notebooks page with an error</p>
+bulletin, redirect them to notebooks page with an error,ensuring complete
+ownership of bulletins.</p>
           
 
           
           <div class="method-source-code" id="owns_bulletin-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 91</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 106</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">owns_bulletin</span>
   <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">user_signed_in?</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">current_user</span> <span class="ruby-operator">!=</span> <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>]).<span class="ruby-identifier">user</span>
     <span class="ruby-identifier">redirect_to</span> <span class="ruby-identifier">notebooks_path</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:notebook_id</span>]), <span class="ruby-identifier">alert</span><span class="ruby-operator">:</span> <span class="ruby-string">'You cannot do this as you do not own this bulletin'</span>
@@ -428,12 +437,17 @@ notebook, redirect them to notebooks page with an error</p>
 
         <div class="method-description">
           
-          <p>GET /bulletins/1 GET /bulletins/1.json</p>
+          <p>Finds the current @bulletin id within the current parameter, passes it into
+@bulletin hash/array and displays that single bulletin via the
+show.html.erb view.</p>
+
+<pre>GET /bulletins/1
+GET /bulletins/1.json</pre>
           
 
           
           <div class="method-source-code" id="show-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 19</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 27</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">show</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
@@ -463,12 +477,17 @@ notebook, redirect them to notebooks page with an error</p>
 
         <div class="method-description">
           
-          <p>PUT /bulletins/1 PUT /bulletins/1.json</p>
+          <p>Update finds the current bulletin id within the current parameter
+committing any updates on the bulletin on request showing a message on
+completion.</p>
+
+<pre>PUT /bulletins/1
+PUT /bulletins/1.json</pre>
           
 
           
           <div class="method-source-code" id="update-source">
-            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 63</span>
+            <pre><span class="ruby-comment"># File app/controllers/bulletins_controller.rb, line 77</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">update</span>
   <span class="ruby-ivar">@bulletin</span> = <span class="ruby-constant">Bulletin</span>.<span class="ruby-identifier">find</span>(<span class="ruby-identifier">params</span>[<span class="ruby-value">:id</span>])
 
