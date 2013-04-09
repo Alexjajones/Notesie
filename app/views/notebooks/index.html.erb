@@ -28,12 +28,12 @@
     <td><%= notebook.description %></td>
 
     <td><div class="btn-group">
-       <%= link_to notebook, :class => "btn btn-small" do %>  <i class="icon-chevron-right"></i> View<% end %>
+       <%= link_to notebook, :class => "btn btn-small" do %>  <i class="icon-chevron-right"></i><span class="text">View</span><% end %>
       <%	 if user_signed_in? && current_user == notebook.user %>
       <a class="btn btn-small dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
       <ul class="dropdown-menu">
-        <li> <%= link_to edit_notebook_path(notebook) do %> <i class="icon-pencil"></i> Edit <% end %> </li>
-        <li> <%= link_to notebook, method: :delete, data: {confirm: 'Are you sure?'} do %> <i class="icon-remove"></i> Delete <% end %> </li>
+        <li> <%= link_to edit_notebook_path(notebook) do %> <i class="icon-pencil"></i><span class="text"> Edit</span> <% end %> </li>
+        <li> <%= link_to notebook, method: :delete, data: {confirm: 'Are you sure?'} do %> <i class="icon-remove"></i><span class="text"> Delete</span> <% end %> </li>
       </ul>
       <% end %>
     </div>

@@ -46,12 +46,9 @@
             <ul class="nav pull-right">
               <% if user_signed_in?  %>
 
-
-
-
-                  <li> <%= link_to notebooks_path do %> <i class="icon-briefcase"></i> Notesies <% end %> </li>
-                  <li> <%= link_to edit_user_registration_path do %> <i class="icon-user"></i>Profile <% end %> </li>
-                  <li> <%= link_to destroy_user_session_path, method: :delete do %> <i class="icon-lock"></i>Log Off <% end %> </li>
+                  <li> <%= link_to notebooks_path do %> <i class="icon-briefcase"></i><span class="text"> Notesies </span><% end %> </li>
+                  <li> <%= link_to edit_user_registration_path do %> <i class="icon-user"></i><span class="text">Profile</span> <% end %> </li>
+                  <li> <%= link_to destroy_user_session_path, method: :delete do %> <i class="icon-lock"></i><span class="text">Log Off</span> <% end %> </li>
 
 
                   <!--Old nav-->

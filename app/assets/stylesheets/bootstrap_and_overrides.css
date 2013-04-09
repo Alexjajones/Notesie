@@ -49,6 +49,15 @@ li {
     margin: 7px;
 }
 
+textarea{
+  width: 220px!important;
+  height: 200px!important;
+}
+
+select{
+    width: auto !important;
+}
+
 /*.btn-group > .btn:first-child{*/
     /*color: #ffffff !important;*/
 /*}*/
