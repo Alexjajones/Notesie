@@ -1,14 +1,12 @@
 <div class="span8">
 <p id="notice"><%= notice %></p>
-<p>
-  <b>Name:</b>
+<h5>
   <%= @notebook.name %>
-</p>
+</h5>
 
-<p>
-  <b>Description:</b>
+<h5>
   <%= @notebook.description %>
-</p>
+</h5>
 	<table class="table">
  	<tr>
  		<th>Name</th>
@@ -17,7 +15,7 @@
  	</tr>
  	<% @notebook.tasks.each do |task| %>
    	<tr>
-		<td><%= link_to task.name.titleize, edit_notebook_task_path(@notebook, task) %></td>
+		<td><%= link_to task.name.titleize, notebook_task_path(@notebook, task) %></td>
 	    <td><%= task.description %></td>
 		<td><%= task.datedue.strftime("%m/%d/%Y") %></td>
 
@@ -33,16 +31,18 @@
 	</tr>
 	<%end%>
 </table>
-<p>
+
+  <div class="pull-right">
   <%	 if user_signed_in? && current_user == @notebook.user %>
-  <%= link_to 'New Task', new_notebook_task_path(@notebook) %>
+  <%= link_to 'New Task', new_notebook_task_path(@notebook), :class => "btn" %>
 
-</p>
 
-<%= link_to 'Edit', edit_notebook_path(@notebook) %> |
+
+<%= link_to 'Edit', edit_notebook_path(@notebook), :class => "btn" %>
 <%	 end %>
-<%= link_to 'Back', notebooks_path %>
+<%= link_to 'Back', notebooks_path, :class => "btn" %>
+</div>
 </div>
 <div class="span4">
-
-</div><!--/span-->
+    <h5>Link Dump</h5>
+</div>

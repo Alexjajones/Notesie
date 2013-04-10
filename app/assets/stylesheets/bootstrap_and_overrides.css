@@ -66,6 +66,9 @@ td a:hover{
     background-color: transparent !important;
     color: #666 !important;
 }
+.dropdown-menu > li > a:hover{
+    color: #ffffff!important;
+}
 
 /*.btn-group > .btn:first-child{*/
     /*color: #ffffff !important;*/
