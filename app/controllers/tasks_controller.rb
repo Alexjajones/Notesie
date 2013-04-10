@@ -5,7 +5,7 @@ class TasksController < ApplicationController
   before_filter :authenticate_user!
 
   #Makes owns_task only effect edit, update and destroy
-  before_filter :owns_task, only: [:edit, :update, :destroy]
+  before_filter :owns_task, only: [:edit, :update]
 
   # Passes all of current tasks via the Tasks model into the @tasks hash/array and displays the index view.
   # GET /tasks
@@ -65,7 +65,7 @@ class TasksController < ApplicationController
 
     respond_to do |format|
       if @task.save
-        format.html { redirect_to notebook_task_path(@notebook,@task), notice: 'Task was successfully created.' }
+        format.html { redirect_to notebook_path(@notebook), notice: 'Task was successfully created.' }
         format.json { render json: @task, status: :created, location: @task }
       else
         format.html { render action: "new" }
@@ -100,7 +100,7 @@ class TasksController < ApplicationController
     @task.destroy
 
     respond_to do |format|
-      format.html { redirect_to notebook_path(params[:notebook_id]) }
+      format.html { redirect_to :back, notice: 'Task was successfully created.' }
       format.json { head :no_content }
     end
   end

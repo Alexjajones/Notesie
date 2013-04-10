@@ -58,6 +58,15 @@ select{
     width: auto !important;
 }
 
+.btn-group{
+    background-color:#e6e6e6 !important;
+}
+
+td a:hover{
+    background-color: transparent !important;
+    color: #666 !important;
+}
+
 /*.btn-group > .btn:first-child{*/
     /*color: #ffffff !important;*/
 /*}*/

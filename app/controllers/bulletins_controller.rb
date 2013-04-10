@@ -4,7 +4,7 @@ class BulletinsController < ApplicationController
   before_filter :authenticate_user!
 
   #Makes owns_notebook only effect edit, update and destroy
-  before_filter :owns_bulletin, only: [:edit, :update, :destroy]
+  before_filter :owns_bulletin, only: [:edit, :update]
 
   #Makes owns_notebook only effect new
   before_filter :is_tutor, only: [:new]
@@ -62,7 +62,7 @@ class BulletinsController < ApplicationController
 
     respond_to do |format|
       if @bulletin.save
-        format.html { redirect_to @bulletin, notice: 'Bulletin was successfully created.' }
+        format.html { redirect_to notebooks_path, notice: 'Bulletin was successfully created.' }
         format.json { render json: @bulletin, status: :created, location: @bulletin }
       else
         format.html { render action: "new" }
@@ -96,7 +96,7 @@ class BulletinsController < ApplicationController
     @bulletin.destroy
 
     respond_to do |format|
-      format.html
+      format.html { redirect_to notebooks_path }
       format.json { head :no_content }
     end
   end
