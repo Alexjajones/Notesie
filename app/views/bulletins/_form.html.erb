@@ -20,21 +20,22 @@
     <%= f.text_area :description %>
   </div>
 
-    <table class="table">
-      <tr>
-        <th>Subject</th>
-      </tr>
-      <tr>
-        <td>Computing</td>
-        <td><%=  f.radio_button :subject_id, '1' %></td>
-      </tr>
-      <tr>
-        <td>Animal Care</td>
-        <td><%=  f.radio_button :subject_id, '2' %></td>
-      </tr>
-    </table>
+    <ul class="nav nav-pills">
+      <li class="dropdown">
+        <a class="btn btn-small dropdown-toggle"
+           data-toggle="dropdown"
+           href="#">
+          Click here and select subject
+          <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu">
+          <li class="dropdown"><a>Computing  <%=  f.radio_button :subject_id, '1' %></a> </li>
+          <li class="dropdown"><a>Animal Care  <%=  f.radio_button :subject_id, '2' %></a></li>
+        </ul>
+      </li>
+    </ul>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Update Bulletin", :class =>"btn" %>
   </div>
 <% end %>

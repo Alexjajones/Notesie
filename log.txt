@@ -1,0 +1,317 @@
+commit 13231c750965ffaecf86136218fc0a44043be605
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Apr 9 21:24:14 2013 +0100
+
+    Responsive, bug fix's
+    
+    Our app is now truly responsive. Bug fix, back button under the new
+    tasks view heads back to notebook instead of task.
+
+commit 7f850f5160b80bd14d2149bf1897c9af02438ea5
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Apr 9 20:55:06 2013 +0100
+
+    Changed Icons
+    
+    More logical icons
+
+commit 6d08944ea3c26785f9541881b75d26059ea2d3cb
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Apr 9 20:54:59 2013 +0100
+
+    Changed Icons on Notesie Page
+
+commit 4b205f78b0ebdd4ea45c22cc40754b635401946b
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Apr 9 19:56:02 2013 +0100
+
+    Adding Icons to Notesie view
+
+commit c35cc18eddc3a78c341a07f9df943594e6777d9b
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Apr 9 19:05:33 2013 +0100
+
+    Task validation, UI changes
+    
+    Now users who do not own a task cant edit, delete or update the task.
+    Added a migration, new method called owns_task and changes to notebook
+    show.
+
+commit 2e084bce33962f552b37b03b7b608239b0f6f721
+Merge: abc94cc 16ff29f
+Author: AlexLaptop <alexjajones1@gmail.com>
+Date:   Tue Apr 9 13:56:12 2013 +0100
+
+    Merge branch 'master' of https://github.com/Alexjajones/Notesie
+
+commit abc94ccd89309c999bbd937cab1140011bb25501
+Author: AlexLaptop <alexjajones1@gmail.com>
+Date:   Tue Apr 9 13:55:44 2013 +0100
+
+    Deleted un-needed migrations
+
+commit 16ff29f3e778990f0b2c3f84d0af011353c4eddc
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Apr 9 13:54:29 2013 +0100
+
+    Doc, minor eidts
+
+commit bbfdc4a3b22ebe469e1fbe449d3bd33ffed23126
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Apr 9 13:53:50 2013 +0100
+
+    Doc, minor fix's
+
+commit 3ae7409b451a8d66dc4cdde47e677825ac787586
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Apr 9 00:08:03 2013 +0100
+
+    Documentation
+    
+    Adding all of the basic documentation. No commenting the whole program
+
+commit 68843ce8a76c7a6c3fcd266fb91924c90e4d4309
+Author: Tom O <tom.osbornee@gmail.com>
+Date:   Mon Apr 8 16:58:04 2013 +0100
+
+    Icons and css override
+
+commit 6df1487742eea94e7edcc6ef5f6bead0d9b6361e
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Mon Apr 8 22:03:06 2013 +0100
+
+    Now users can't edit bulletins that don't belong
+
+commit 19638a4fd2a8fcd13cda3110ccc5909320bced9f
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Mon Apr 8 21:24:23 2013 +0100
+
+    Nav Icons, News Section, Fix Update Task
+    
+    Have also found out how to auto generate Basic Documentation! Woo!
+
+commit b461c33d9d1e3a2ead6f7487838fc806a585ee40
+Author: Tom O <tom.osbornee@gmail.com>
+Date:   Mon Apr 8 16:23:47 2013 +0100
+
+    Fixed pumpage of HTML
+
+commit 6e6d13e7506b99af43fcba4e2f5642be2b5a38cd
+Author: Tom O <tom.osbornee@gmail.com>
+Date:   Mon Apr 8 16:19:04 2013 +0100
+
+    Changes to stylesheet, global navigation and homepage
+
+commit 0fa275149da0a0a7a38f86ae793c00df07eb935a
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Sun Apr 7 21:00:46 2013 +0100
+
+    Taken away ability to create a new subject
+    
+    Ask me for details why
+
+commit 4bebb06fca8b151bc4489daf7e79b5e7a19596d8
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Sun Apr 7 18:33:45 2013 +0100
+
+    Validation
+    
+    Random Validation!
+
+commit fed9151837c1fc5490fbe5233f7e6634cf338706
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Sun Apr 7 18:18:55 2013 +0100
+
+    Tasks/Subjects
+    
+    Now must be owner of the notebook to create new tasks for it. Now able
+    to add view and add new subjects via notebook page.
+
+commit 46ec40581d6b374f71466e6b4d555aa468afc670
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Sun Apr 7 16:49:29 2013 +0100
+
+    User Categories
+    
+    When creating a new notebook, a group can be assigned. When creating a
+    new account a group can be assigned. Only your groups notebooks will
+    show up.
+    
+    Add below to new.html.erd under devise:
+    
+    <table class="table">
+    <tr>
+    <th>Subject</th>
+    </tr>
+    <tr>
+    <td>Computing</td>
+    <td><%=  f.radio_button :subject_id, '1' %></td>
+    </tr>
+    <tr>
+    <td>Animal Care</td>
+    <td><%=  f.radio_button :subject_id, '2' %></td>
+    </tr>
+    </table>
+
+commit a01e992996b1ee14d6d52176d942df852840c899
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Fri Apr 5 16:14:48 2013 +0100
+
+    Now none tutors cant create new books
+    
+    Users who are not tutors can not navigate to the new notebook page via
+    typing in the URL. A user now HAS to be a tutor to create a new notebook
+
+commit 3c2c2b0713e739041ebc4508a28fadf8ea6756c7
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Fri Apr 5 15:27:16 2013 +0100
+
+    When signing up, user can select to be a tutor
+    
+    Add ...
+    <div><%= f.label :tutor %><br />
+    <%= f.check_box :tutor  %></div>
+    to
+    
+    RailsInstaller\Ruby1.9.3\lib\ruby\gems\1.9.1\gems\devise-2.2.3\app\views\devise\registrations\new.html.erb
+
+commit 71e0d1b6f48d56f5aa306234725148afd7b5480d
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Fri Apr 5 14:53:04 2013 +0100
+
+    Image button working hidden if user isn't a tutor
+    
+    Now only tutors will see the button to create a new notebook
+
+commit c8bb80b6e3857cd26e014722bcc59a65e8a85627
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Fri Apr 5 14:26:12 2013 +0100
+
+    Tutor's can only make new notebooks
+    
+    Added tutor with boolean field into users table, added if statement
+    around new notebook to mean if tutor is true is will show, else its
+    hidden.
+
+commit faee633e34f295809abdf99dab8163acf47d9c48
+Author: Tom O <tom.osbornee@gmail.com>
+Date:   Mon Apr 1 17:00:41 2013 +0100
+
+    UI Changes
+
+commit d3eacf067f2c8656c0dd147370e4ce2ce868c21a
+Author: Tom O <tom.osbornee@gmail.com>
+Date:   Thu Mar 28 15:48:17 2013 +0000
+
+    nav changes
+
+commit 905b470397f994647821635e5ede81d0661b5a51
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Mar 19 11:58:50 2013 +0000
+
+    Removing files from version control
+
+commit dc2e175ad22f137fca035507f65ec2d2530a7426
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Mar 19 11:55:19 2013 +0000
+
+    Ignore ./idea files
+
+commit 73af695d17f93dfad3d2171094f89d178afcbef9
+Author: Tom O <tom.osbornee@gmail.com>
+Date:   Tue Mar 19 11:23:07 2013 +0000
+
+    Changed footer
+    
+    Footer description changed
+
+commit 4003fb4140ffd108f7fef38d200aae7f221dca25
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Mar 19 11:17:51 2013 +0000
+
+    Changed the README file
+    
+    Had random junk in it
+
+commit d1a138e28ef88fce1ebb123a29449df72a540734
+Merge: 9441108 1938a56
+Author: AlexLaptop <alexjajones1@gmail.com>
+Date:   Tue Mar 19 11:11:03 2013 +0000
+
+    Merge branch 'master' of https://github.com/Alexjajones/Notesie
+    
+    Conflicts:
+    	.idea/workspace.xml
+    	app/views/notebooks/show.html.erb
+
+commit 9441108191ea71003061c5de114b0b8685922762
+Author: AlexLaptop <alexjajones1@gmail.com>
+Date:   Tue Mar 19 11:09:53 2013 +0000
+
+    Laptop changes
+
+commit 1938a561c6a7b5888d10f53918c2ecd5cfc2376f
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Mar 19 11:06:39 2013 +0000
+
+    Get dates sorted
+
+commit 7be8fb0f497713c93700c27207c4cceea38e4366
+Merge: bcf3e32 39a751a
+Author: AlexLaptop <alexjajones1@gmail.com>
+Date:   Tue Mar 19 10:56:14 2013 +0000
+
+    Merge branch 'master' of https://github.com/Alexjajones/Notesie
+
+commit bcf3e32104e51d6016edd89488039fc9b85cc22d
+Author: AlexLaptop <alexjajones1@gmail.com>
+Date:   Tue Mar 19 10:52:16 2013 +0000
+
+    Revert "Sorted out dates"
+    
+    This reverts commit b600ab2a5aac1affb5640123cae37c2f2629f849.
+
+commit b600ab2a5aac1affb5640123cae37c2f2629f849
+Author: Alex <alexjajones1@gmail.com>
+Date:   Tue Mar 19 10:32:51 2013 +0000
+
+    Sorted out dates
+    
+    Changed the ouput of the date fields
+
+commit 39a751a598f6c3b9fab55cc998d6dab5adfdd76d
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Tue Mar 19 10:31:15 2013 +0000
+
+    Made logout work
+    
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+    
+    added back
+
+commit 6edd9ee1906e3e07fda2040a662eea5dd5c3058d
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Sun Mar 17 22:32:07 2013 +0000
+
+    Auto Year
+
+commit 62e32dcd23644ee2be4d71512cb8797e68057bc6
+Author: Alex <alexjajones1@gmail.com>
+Date:   Sun Mar 17 18:38:25 2013 +0000
+
+    Getting it working
+    
+    <!-- Javascripts
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <%= javascript_include_tag "application" %>
+    Was taken out
+
+commit 15048cf0be355c1bbe3fd57196c99cfbc40ad924
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Sun Mar 17 16:50:10 2013 +0000
+
+    Notesie with Login feature

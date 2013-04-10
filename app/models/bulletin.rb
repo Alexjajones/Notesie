@@ -15,6 +15,7 @@
 
 class Bulletin < ActiveRecord::Base
   attr_accessible :description, :title, :subject_id
+  validates  :description, :title, :subject_id, :presence => true
 
   belongs_to :user
 end
