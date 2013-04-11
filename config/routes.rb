@@ -1,4 +1,6 @@
 Notesie::Application.routes.draw do
+  resources :link_dumps
+
   resources :bulletins
 
   resources :subjects
@@ -10,6 +12,7 @@ Notesie::Application.routes.draw do
 
   resources :notebooks do
     resources :tasks
+    resources :link_dumps
   end
 
   root to: 'home#index'

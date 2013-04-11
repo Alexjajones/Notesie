@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Description:</b>
+  <%= @link_dump.description %>
+</p>
+
+<p>
+  <b>Notebook:</b>
+  <%= @link_dump.notebook_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @link_dump.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_link_dump_path(@link_dump) %> |
+<%= link_to 'Back', link_dumps_path %>

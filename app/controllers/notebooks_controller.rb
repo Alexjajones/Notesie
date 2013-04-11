@@ -28,6 +28,7 @@ class NotebooksController < ApplicationController
   # GET /notebooks/1.json
   def show
     @notebook = Notebook.find(params[:id])
+    @link_dump = LinkDump.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb

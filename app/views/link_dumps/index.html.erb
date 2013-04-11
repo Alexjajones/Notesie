@@ -1,0 +1,27 @@
+<h1>Listing link_dumps</h1>
+
+<table>
+  <tr>
+    <th>Description</th>
+    <th>Notebook</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @link_dumps.each do |link_dump| %>
+  <tr>
+    <td><%= link_dump.description %></td>
+    <td><%= link_dump.notebook_id %></td>
+    <td><%= link_dump.user_id %></td>
+    <td><%= link_to 'Show', link_dump %></td>
+    <td><%= link_to 'Edit', edit_link_dump_path(link_dump) %></td>
+    <td><%= link_to 'Destroy', link_dump, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Link dump', new_link_dump_path %>

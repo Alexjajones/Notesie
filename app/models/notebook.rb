@@ -17,6 +17,7 @@ class Notebook < ActiveRecord::Base
 
   has_many :tasks,  dependent: :destroy
   has_many :bulletins
+  has_many :link_dumps
 
   belongs_to :user
   belongs_to :subject

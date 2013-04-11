@@ -1,0 +1,22 @@
+<%= form_for [@notebook, @link_dump] do |f| %>
+  <% if @link_dump.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@link_dump.errors.count, "error") %> prohibited this link_dump from being saved:</h2>
+
+      <ul>
+      <% @link_dump.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Create Link", :class => "btn" %>
+  </div>
+<% end %>
