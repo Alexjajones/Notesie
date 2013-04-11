@@ -11,6 +11,8 @@ class LinkDumpsController < ApplicationController
     end
   end
 
+  #Finds the current link id within the current parameter, passes it into @link_dump hash/array and displays that single link via the show view.
+  #Also passes current notebook from the Notebooks model into @notebook hash/array
   # GET /link_dumps/1
   # GET /link_dumps/1.json
   def show
@@ -23,6 +25,8 @@ class LinkDumpsController < ApplicationController
     end
   end
 
+  #Calls .new to create a new link via the LinkDump model and displays that single link via the new.html.erb view.
+  #Also passes current notebook from the Notebooks model into @notebook hash/array.
   # GET /link_dumps/new
   # GET /link_dumps/new.json
   def new
@@ -35,11 +39,15 @@ class LinkDumpsController < ApplicationController
     end
   end
 
+  #Finds the current link id within the current parameter and displays that single link with editing options via the edit.html.erb view, which renders the _form.html.erb as the form.
   # GET /link_dumps/1/edit
   def edit
     @link_dump = LinkDump.find(params[:id])
   end
 
+  #Calls .new to create a new link nested under notebooks, passing the link via the parameter.
+  #Also passes current notebook from the Notebooks model into @notebook hash/array.
+  #Assigns the link's notebook_id field to the current notebooks id. Assigns the link's user_id field to the current users id.
   # POST /link_dumps
   # POST /link_dumps.json
   def create
@@ -59,6 +67,8 @@ class LinkDumpsController < ApplicationController
     end
   end
 
+  #Update finds the current link id within the current parameter committing any updates on the link on request showing a message on completion.
+  #Redirects user to the tasks root /notebooks/:id
   # PUT /link_dumps/1
   # PUT /link_dumps/1.json
   def update
@@ -66,7 +76,7 @@ class LinkDumpsController < ApplicationController
 
     respond_to do |format|
       if @link_dump.update_attributes(params[:link_dump])
-        format.html { redirect_to @link_dump, notice: 'Link dump was successfully updated.' }
+        format.html { redirect_to notebook_path(@notebook), notice: 'Link dump was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -75,6 +85,7 @@ class LinkDumpsController < ApplicationController
     end
   end
 
+  #Finds the current link id within the current parameter and assigns it to @link_dump, then calls destroy on that link.
   # DELETE /link_dumps/1
   # DELETE /link_dumps/1.json
   def destroy

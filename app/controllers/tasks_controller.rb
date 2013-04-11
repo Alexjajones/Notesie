@@ -20,7 +20,7 @@ class TasksController < ApplicationController
   end
 
   #Finds the current task id within the current parameter, passes it into @task hash/array and displays that single task via the show view.
-  #Also passes current notebook from the Notebooks model into @notebook hash/array
+  #Also passes current notebook from the Notebooks model into @notebook hash/array.
   # GET /tasks/1
   # GET /tasks/1.json
   def show
@@ -34,7 +34,7 @@ class TasksController < ApplicationController
   end
 
   #Calls .new to create a new task via the Task model and displays that single task via the new.html.erb view.
-  #Also passes current notebook from the Notebooks model into @notebook hash/array
+  #Also passes current notebook from the Notebooks model into @notebook hash/array.
   # GET /tasks/new
   # GET /tasks/new.json
   def new
@@ -75,7 +75,7 @@ class TasksController < ApplicationController
   end
 
   #Update finds the current task id within the current parameter committing any updates on the task on request showing a message on completion.
-  #Redirects user to the tasks root /notebooks/1/tasks/1
+  #Redirects user to the tasks root /notebooks/:id/tasks/:id
   # PUT /tasks/1
   # PUT /tasks/1.json
   def update

@@ -3,14 +3,14 @@
 # Table name: bulletins
 #
 #  id          :integer          not null, primary key
-#  title       :string(255)
-#  description :string(255)
+#  title       :string(255)      not null
+#  description :string(255)      not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
-#  subject_id  :integer
-#  user_id     :integer
+#  subject_id  :integer          not null
+#  user_id     :integer          not null
 #
-#Creates table bulletins and adds vailidation to it.
+#Creates table bulletins and adds validation to it.
 #
 
 class Bulletin < ActiveRecord::Base

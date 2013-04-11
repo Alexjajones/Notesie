@@ -1,6 +1,6 @@
 class BulletinsController < ApplicationController
   #Makes authenticate_user! effect the whole application. This will force the user to sign up/log in before the application can be used.
-  #Before filter means it is appplied to the application before it loads.
+  #Before filter means it is applied to the application before it loads.
   before_filter :authenticate_user!
 
   #Makes owns_notebook only effect edit, update and destroy
