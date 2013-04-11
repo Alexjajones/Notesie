@@ -1,3 +1,46 @@
+commit a00da19fba10e0c1c42bc0ba3acbe1b2b0428960
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Thu Apr 11 09:17:02 2013 +0100
+
+    Added files from PC
+
+commit c7c7c663fb19d699076a2b1d8104c96b930dc2b7
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Thu Apr 11 00:57:31 2013 +0100
+
+    Show single task
+    
+    Single task has been skinned. An area for Disqus has been added. Also
+    applied detail to the buttons on the sign up and log in on Devise.
+
+commit 2eb948a9f3509dad825676f79c6fb7f0d48ef621
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Thu Apr 11 00:11:00 2013 +0100
+
+    Routing Errors, Button Skinning
+    
+    Routing errors with deleting a bulletin and deleting a task have been
+    sorted. Buttons have been added throughout the application to keep with
+    our overall look.
+
+commit 5948cdee5e599927bf9e23784d8223f38896360a
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Wed Apr 10 15:49:33 2013 +0100
+
+    Test Plan
+    
+    Test Plan for test cases and test documentation
+
+commit 0db475ae02c795941c19dc475efb54f5b73e8527
+Author: Alex Jones <alexjajones1@gmail.com>
+Date:   Wed Apr 10 15:45:31 2013 +0100
+
+    Testing Docs, UI changes
+    
+    Compatibility, User Interface and Functionality testing documentation.
+    
+    Updates for buttons on notebook view, bulletin view and task view.
+
 commit 13231c750965ffaecf86136218fc0a44043be605
 Author: Alex Jones <alexjajones1@gmail.com>
 Date:   Tue Apr 9 21:24:14 2013 +0100
