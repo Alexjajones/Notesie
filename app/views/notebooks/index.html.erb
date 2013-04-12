@@ -60,14 +60,11 @@
   <table class="table">
     <tr>
       <th>Name</th>
-      <th> Description</th>
     </tr>
     <% @bulletins.each do |bulletin| %>
         <% if user_signed_in? && current_user.subject_id == bulletin.subject_id %>
         <tr>
           <td><%= link_to bulletin.title.titleize, edit_bulletin_path(bulletin) %></td>
-          <td><%= bulletin.description %></td>
-
           <%	 if user_signed_in? && current_user == bulletin.user %>
           <td> <%= link_to bulletin, method: :delete, data: {confirm: 'Are you sure?'} do %> <i class="icon-remove"></i>  <% end %> </td>
           <% end %>
